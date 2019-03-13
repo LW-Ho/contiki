@@ -129,7 +129,7 @@ output(void)
     PRINTF("packet_length:%d \n", UIP_IP_BUF->len[1]);
 
     uint8_t ip_payload_length = UIP_IP_BUF->len[1];
-    uint8_t coap_packet_start_location = UIP_IPH_LEN + ip_payload_length - 40;  //44 is coap payload length
+    uint8_t coap_packet_start_location = UIP_IPH_LEN + ip_payload_length - 44;  //44 is coap payload length
 
     uint8_t flag1 = ((uint8_t *) (UIP_IP_BUF))[coap_packet_start_location];
     uint8_t flag2 = ((uint8_t *) (UIP_IP_BUF))[coap_packet_start_location + 1];
