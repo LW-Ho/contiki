@@ -86,7 +86,7 @@
 
 /* Network config */
 #undef SICSLOWPAN_CONF_FRAG
-#define SICSLOWPAN_CONF_FRAG     0
+#define SICSLOWPAN_CONF_FRAG     1
 
 /*******************************************************/
 /******************* Configure TSCH ********************/
