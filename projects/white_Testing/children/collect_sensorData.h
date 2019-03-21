@@ -19,6 +19,6 @@
 // PROCESS_NAME(collect_sensor_data);
 
 uint32_t * return_Sensor_Data(void);
-uint8_t * return_collect_data_of_numbers(void);
+int * return_collect_data_of_numbers(void);
 
 #endif /* COLLECT_SENSORDATA_H_ */

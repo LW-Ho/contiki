@@ -299,7 +299,7 @@ return_Sensor_Data(void)
   return tempData;
 }
 /*---------------------------------------------------------------------------*/
-uint8_t *
+int *
 return_collect_data_of_numbers(void)
 {
   return count_backup;

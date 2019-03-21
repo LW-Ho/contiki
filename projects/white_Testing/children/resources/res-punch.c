@@ -73,7 +73,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
 
   // static int8_t sht21_present=0; //, max44009_present=0, adxl346_present=0; 
   // static int16_t temperature_temp, humidity_temp; //, light, accelx, accely, accelz;
-  uint8_t * count = 0;
+  int count = 0;
   memcpy(count, return_collect_data_of_numbers(), sizeof(count));
 
   uint32_t * sensorData[count]={}; //restore sensor data from node.c by UART.h
@@ -108,7 +108,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
         // uint8_t end_flag[2]; // 42, 43
         // // Done padding int16_t //X null
         // // total size = 44
-        uint32_t motoData[count]; // 4 5 ~ 130 131 132 133
+        uint32_t motoData[int(count)]; // 4 5 ~ 130 131 132 133
       } message;
       memset(&message, 0, sizeof(message));
 
@@ -248,6 +248,6 @@ res_periodic_handler()
     PRINTF("Generate a new packet! , %08x. \n",tsch_current_asn.ls4b);
 
     /* Notify the registered observers which will trigger the res_get_handler to create the response. */
-    REST.notify_subscribers(&res_sicslowpan);
+    REST.notify_subscribers(&res_punch);
   }
 }
