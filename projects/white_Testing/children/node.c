@@ -274,7 +274,7 @@ collect_data_send(char* data)
     memset(tempData,'\0',sizeof(tempData)); // free the tempData
   }
   // found end word, goto default value.
-  else if(split == 66 || count == 32){
+  else if(split == 66){
     for (i=0;i<count;i++){
       PRINTF("i : %d , count : %d\n",i, count);
       PRINTF("Each the sensor data %u \n",tempData[i]);
