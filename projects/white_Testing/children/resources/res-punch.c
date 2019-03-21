@@ -73,10 +73,10 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
 
   // static int8_t sht21_present=0; //, max44009_present=0, adxl346_present=0; 
   // static int16_t temperature_temp, humidity_temp; //, light, accelx, accely, accelz;
-  int count = 0;
-  memcpy(count, return_collect_data_of_numbers(), sizeof(count));
+  // int *count = 0;
+  // memcpy(count, return_collect_data_of_numbers(), sizeof(count));
 
-  uint32_t * sensorData[count]={}; //restore sensor data from node.c by UART.h
+  uint32_t * sensorData[500]={}; //restore sensor data from node.c by UART.h
 
   // call main function, get the sensor data.
   //sensorData = return_Sensor_Data();
@@ -108,7 +108,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
         // uint8_t end_flag[2]; // 42, 43
         // // Done padding int16_t //X null
         // // total size = 44
-        uint32_t motoData[int(count)]; // 4 5 ~ 130 131 132 133
+        uint32_t motoData[500]; // 4 5 ~ 130 131 132 133
       } message;
       memset(&message, 0, sizeof(message));
 
@@ -116,7 +116,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
       message.flag[1] = 0x66;
 
       int temp;
-      for (temp = 0;temp<count ;temp++){
+      for (temp = 0;temp<500 ;temp++){
         message.motoData[temp] = sensorData[temp];
       }
       PRINTF("Copy Done.\n");
