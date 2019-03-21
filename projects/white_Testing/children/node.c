@@ -86,10 +86,11 @@
 //#include "dev/max44009.h"  //light
 
 //extern resource_t res_hello, res_push, res_toggle, res_collect;
-extern resource_t res_arduinoBoard, res_sht21, res_sicslowpan; // , res_temperature;
+extern resource_t res_arduinoBoard, res_sht21, res_sicslowpan, res_punch; // , res_temperature;
 
-uint32_t * tempData[32];
+uint32_t * tempData[500];
 static int count = 0;
+static int count_backup = 0;
 static int collect_flag = 0;
 
 /*---------------------------------------------------------------------------*/
@@ -133,6 +134,7 @@ PROCESS_THREAD(er_example_server, ev, data)
   rest_activate_resource(&res_arduinoBoard, "g/arduinoBoard");
   rest_activate_resource(&res_sht21, "g/sht21");
   rest_activate_resource(&res_sicslowpan, "g/sicslowpan");
+  rest_activate_resource(&res_punch, "g/punch");
   //rest_activate_resource(&res_temperature, "g/res_temperature");
 
 #if PLATFORM_HAS_LEDS
@@ -277,6 +279,7 @@ collect_data_send(char* data)
       PRINTF("i : %d , count : %d\n",i, count);
       PRINTF("Each the sensor data %u \n",tempData[i]);
     }
+    count_backup = count;
     count = 0;
     collect_flag = 0;
   }
@@ -296,7 +299,11 @@ return_Sensor_Data(void)
   return tempData;
 }
 /*---------------------------------------------------------------------------*/
-
+uint8_t *
+return_collect_data_of_numbers(void)
+{
+  return count_backup;
+}
 
 /*---------------------------------------------------------------------------*/
 
