@@ -88,7 +88,7 @@
 //extern resource_t res_hello, res_push, res_toggle, res_collect;
 extern resource_t res_arduinoBoard, res_sht21, res_sicslowpan, res_punch; // , res_temperature;
 
-uint32_t * tempData[100];
+uint32_t * tempData[32];
 static int count = 0;
 static int count_backup = 0;
 static int collect_flag = 0;
