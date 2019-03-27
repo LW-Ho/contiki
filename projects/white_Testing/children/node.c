@@ -264,6 +264,7 @@ collect_data_send(char* data)
   int split;
   int i;
 
+  INTERRUPTS_DISABLE();
   PRINTF("The data is : %s \n",data);
   //split = strtok(data,",");
   split = atoi(data);
@@ -282,12 +283,14 @@ collect_data_send(char* data)
     count_backup = count;
     count = 0;
     collect_flag = 0;
+    memset(tempData,'\0',sizeof(tempData)); // free the tempData
   }
   else if(collect_flag){
     //tempData[count] = atoi(split);
     tempData[count] = split;
     count++;
   }
+  INTERRUPTS_ENABLE();
   return 0;
 }
 
@@ -320,6 +323,7 @@ PROCESS_THREAD(node_process, ev, data)
 
     //if(sht21.status(SENSORS_READY) == 0) {
       PROCESS_WAIT_EVENT();
+      INTERRUPTS_DISABLE();
       if(ev == serial_line_event_message) {
       char * rxdata;
       //leds_toggle(LEDS_RED);
@@ -334,6 +338,7 @@ PROCESS_THREAD(node_process, ev, data)
       }else {
         PRINTF("Nothing... \n");
       }
+      INTERRUPTS_ENABLE();
     //}
     // else {
     //   PROCESS_YIELD_UNTIL(etimer_expired(&etaa));
