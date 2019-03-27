@@ -43,6 +43,7 @@
 #include <string.h>
 
 #include "contiki.h"
+#include "cpu.h"
 #include "contiki-net.h"
 #include "rest-engine.h"
 
