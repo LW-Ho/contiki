@@ -284,7 +284,6 @@ collect_data_send(char* data)
     count_backup = count;
     count = 0;
     collect_flag = 0;
-    memset(tempData,'\0',sizeof(tempData)); // free the tempData
   }
   else if(collect_flag){
     //tempData[count] = atoi(split);
