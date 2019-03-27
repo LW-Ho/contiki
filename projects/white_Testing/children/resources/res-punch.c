@@ -116,7 +116,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
       message.flag[1] = 0x66;
 
       int temp;
-      for (temp = 0;temp<100 ;temp++){
+      for (temp = 0;temp<30 ;temp++){
         message.motoData[temp] = sensorData[temp];
       }
       PRINTF("Copy Done.\n");
