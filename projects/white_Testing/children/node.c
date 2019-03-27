@@ -324,7 +324,6 @@ PROCESS_THREAD(node_process, ev, data)
 
     //if(sht21.status(SENSORS_READY) == 0) {
       PROCESS_WAIT_EVENT();
-      INTERRUPTS_DISABLE();
       if(ev == serial_line_event_message) {
       char * rxdata;
       //leds_toggle(LEDS_RED);
@@ -339,7 +338,6 @@ PROCESS_THREAD(node_process, ev, data)
       }else {
         PRINTF("Nothing... \n");
       }
-      INTERRUPTS_ENABLE();
     //}
     // else {
     //   PROCESS_YIELD_UNTIL(etimer_expired(&etaa));
