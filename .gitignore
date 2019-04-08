@@ -8,6 +8,7 @@
 *.d
 *.ihex
 *.pyc
+*.pyc
 *.redbee-econotag
 *.econotag 
 *.native

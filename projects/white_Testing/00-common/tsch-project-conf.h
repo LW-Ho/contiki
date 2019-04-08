@@ -98,7 +98,7 @@
 #define TSCH_LOG_CONF_LEVEL 0
 
 // #define TSCH_CONF_DEFAULT_HOPPING_SEQUENCE (uint8_t[]){ 11, 13, 15, 17 }
-#define TSCH_CONF_DEFAULT_HOPPING_SEQUENCE (uint8_t[]){ 18, 19, 20 }
+#define TSCH_CONF_DEFAULT_HOPPING_SEQUENCE (uint8_t[]){ 24, 25 }
 
 /* 6TiSCH minimal schedule length.
  * Larger values result in less frequent active slots: reduces capacity and saves energy. */
@@ -107,7 +107,7 @@
 
 /* IEEE802.15.4 PANID */
 #undef IEEE802154_CONF_PANID
-#define IEEE802154_CONF_PANID 0xcdef
+#define IEEE802154_CONF_PANID 0xadef
 
 #undef TSCH_CONF_JOIN_MY_PANID_ONLY
 #define TSCH_CONF_JOIN_MY_PANID_ONLY 1
