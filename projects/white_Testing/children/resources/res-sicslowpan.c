@@ -152,7 +152,7 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
       // }
 
 
-      PRINTF("I am sicslowpan res_get hanlder!\n");
+      PRINTF("I am motor res_get hanlder!\n");
       REST.set_header_content_type(response, REST.type.APPLICATION_OCTET_STREAM);
       REST.set_header_max_age(response, res_sicslowpan.periodic->period / CLOCK_SECOND);
 
